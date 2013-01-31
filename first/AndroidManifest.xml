@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="16"
         android:targetSdkVersion="16" />
 
     <application
@@ -21,6 +21,34 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.engineersreference.Contents"
+            android:label="@string/contents" >
+        </activity>
+        <activity
+            android:name="com.example.engineersreference.RelayNumbers"
+            android:label="@string/relaynum" >
+        </activity>
+        <activity
+            android:name="com.example.engineersreference.Pipesizedata"
+            android:label="@string/title_activity_pipesizedata" >
+        </activity>
+        <activity
+            android:name="com.example.engineersreference.FlangeData"
+            android:label="@string/title_activity_flange_data" >
+        </activity>
+        <activity
+            android:name="com.example.engineersreference.SafeHighVoltageClearances"
+            android:label="@string/title_activity_safe_high_voltage_clearances" >
+        </activity>
+        <activity
+            android:name="com.example.engineersreference.Conversions"
+            android:label="@string/title_activity_conversions" >
+        </activity>
+        <activity
+            android:name="com.example.engineersreference.PumpMotorData"
+            android:label="@string/title_activity_pump_motor_data" >
         </activity>
     </application>
 
