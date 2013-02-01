@@ -28,6 +28,7 @@ public class MainActivity extends Activity {
 			// Timer task now runs second activity, which is set to display main
 			// layout
 			Intent i = new Intent(getApplicationContext(), Contents.class);
+			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); 
 			startActivity(i);
 		}
 	}
