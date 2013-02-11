@@ -3,6 +3,7 @@ package com.example.engineersreference;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +20,8 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main); // runs "splash screen" onCreate
 												// first
-
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
 	}
 
 	class MyTimerTask extends TimerTask {

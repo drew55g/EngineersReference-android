@@ -6,6 +6,12 @@ import android.view.Menu;
 
 public class PumpMotorData extends Activity {
 
+	String[] presidents = { "Dwight D. Eisenhower", "John F. Kennedy",
+			"Lyndon B. Johnson", "Richard Nixon", "Gerald Ford",
+			"Jimmy Carter", "Ronald Reagan", "George H. W. Bush",
+			"Bill Clinton", "George W. Bush", "Barack Obama" };
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

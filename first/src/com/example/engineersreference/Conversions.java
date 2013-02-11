@@ -1,22 +1,31 @@
 package com.example.engineersreference;
 
+
+import android.app.ListActivity;
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
-public class Conversions extends Activity {
+public class Conversions extends ListActivity {
+	String[] presidents = { "Dwight D. Eisenhower", "John F. Kennedy",
+			"Lyndon B. Johnson", "Richard Nixon", "Gerald Ford",
+			"Jimmy Carter", "Ronald Reagan", "George H. W. Bush",
+			"Bill Clinton", "George W. Bush", "Barack Obama" };
 
+	/** Called when the activity is first created. */
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_conversions);
+		// ---no need to call this---
+		// setContentView(R.layout.main);
+		setListAdapter(new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, presidents));
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_conversions, menu);
-		return true;
+	public void onListItemClick(ListView parent, View v, int position, long id) {
+		Toast.makeText(this, "You have selected " + presidents[position],
+				Toast.LENGTH_SHORT).show();
 	}
-
 }

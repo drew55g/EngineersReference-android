@@ -1,9 +1,12 @@
 package com.example.engineersreference;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
@@ -17,6 +20,9 @@ public class RelayNumbers extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.relaynumbers);
 
@@ -27,6 +33,9 @@ public class RelayNumbers extends Activity {
 		Button button1 = (Button) findViewById(R.id.button1);
 		button1.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+
+				InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+				imm.hideSoftInputFromWindow(editText1.getWindowToken(), 0);
 
 				relayText.setVisibility(View.VISIBLE);
 				relayDescription.setVisibility(View.VISIBLE);
