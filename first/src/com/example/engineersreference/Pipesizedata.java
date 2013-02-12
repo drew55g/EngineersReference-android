@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;
@@ -26,10 +27,9 @@ public class Pipesizedata extends Activity {
 	boolean[] itemsChecked = new boolean[array.length];
 
 	int selectedPosition;
-
-	String c;
-
+	
 	private TextView pipeTextView;
+	
 	private TextView ODTextView;
 	private TextView IDTextView;
 	private TextView wallThicknessTextView;
@@ -65,21 +65,22 @@ public class Pipesizedata extends Activity {
 
 									// gets the position of the dialog button
 									// selected
+									double a = Float.valueOf(PipeOD(selectedPosition));
+									double b = Float.valueOf(wallThickness(selectedPosition));
+									double c = a-(2*b);
+									
 									selectedPosition = ((AlertDialog) dialog)
 											.getListView()
 											.getCheckedItemPosition();
 
 									// sets the text for the different variables
-									ODTextView.setText(" OD = "
-											+ PipeOD(selectedPosition) );
+									ODTextView.setText(" OD = "+ PipeOD(selectedPosition) );
 
-									IDTextView.setText(" ID = " + PipeID(selectedPosition));
-									wallThicknessTextView
-											.setText(" wallThickness = "
-													+ wallThickness(selectedPosition));
-									pipeTextView
-											.setText("The selected pipe is "
-													+ array[whichButton]);
+									IDTextView.setText(" ID = " + ((Float.valueOf(PipeOD(selectedPosition)))-2*Float.valueOf(wallThickness(selectedPosition))));
+									
+									wallThicknessTextView.setText(" wallThickness = "+ wallThickness(selectedPosition));
+									
+									pipeTextView.setText("The selected pipe is "+ array[whichButton]);
 
 									ListView lw = ((AlertDialog) dialog)
 											.getListView();
@@ -91,7 +92,7 @@ public class Pipesizedata extends Activity {
 									 * User clicked on a radio button do some
 									 * stuff
 									 */
-								
+																
 									ActionBar actionBar = getActionBar();
 									actionBar.hide();
 

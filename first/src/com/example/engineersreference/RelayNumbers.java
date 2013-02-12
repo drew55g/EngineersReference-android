@@ -44,8 +44,13 @@ public class RelayNumbers extends Activity {
 				ScrollView scrollViewOne = (ScrollView) findViewById(R.id.scrollView1);
 				scrollViewOne.scrollTo(0, 0);
 				relayText.setText(relayNumber(Integer.valueOf(et)));
-				relayDescription.setText(relayNumberDescription(Integer
-						.valueOf(et)));
+				relayDescription.setText(relayNumberDescription(Integer.valueOf(et)));
+				
+				if (et == null)
+				{
+					relayText.setText(relayNumber(1000));
+					relayDescription.setText(relayNumberDescription((1000))); 
+				}
 			}
 		});
 	}
