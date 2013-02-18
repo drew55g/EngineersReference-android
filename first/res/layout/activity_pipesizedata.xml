@@ -13,11 +13,23 @@
         android:src="@drawable/pipe" />
 
     <Button
-        android:id="@+id/btn_dialog"
+        android:id="@+id/btn_standard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="Select a Pipe Size" />
+        android:text="Standard Schedule" />
+    
+    
+    <Button
+        android:id="@+id/btn_40"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Schedule 40" />
+    
+     <Button
+        android:id="@+id/btn_80"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Schedule 80" />
     
   <ScrollView
         android:id="@+id/scrollView1"

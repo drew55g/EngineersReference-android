@@ -8,8 +8,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="button1">Relay Device Numbers</string>
-    <string name="button2">Pipe Data by Size</string>
-    <string name="button3">Flange Data by Size</string>
+    <string name="button2">Pipe Dimensional Data </string>
+    <string name="button3">Flange Dimensional Data </string>
     <string name="button4">High Voltage Clearances</string>
     <string name="button5">Conversions</string>
     <string name="button6">Pump/Motor Data</string>

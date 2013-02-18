@@ -4,6 +4,8 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
@@ -40,17 +42,26 @@ public class RelayNumbers extends Activity {
 				relayText.setVisibility(View.VISIBLE);
 				relayDescription.setVisibility(View.VISIBLE);
 
-				String et = editText1.getText().toString();
+				Editable e = editText1.getText();
+				String et = "";
+				if (e != null) { 
+					    et = e.toString();
+				} 
+				
+				
 				ScrollView scrollViewOne = (ScrollView) findViewById(R.id.scrollView1);
 				scrollViewOne.scrollTo(0, 0);
-				relayText.setText(relayNumber(Integer.valueOf(et)));
-				relayDescription.setText(relayNumberDescription(Integer.valueOf(et)));
 				
-				if (et == null)
+				if (et.equals(""))
 				{
 					relayText.setText(relayNumber(1000));
 					relayDescription.setText(relayNumberDescription((1000))); 
+				} else {
+					relayText.setText(relayNumber(Integer.valueOf(et)));
+					relayDescription.setText(relayNumberDescription(Integer.valueOf(et)));					
 				}
+				  
+				 
 			}
 		});
 	}

@@ -2,24 +2,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".FlangeData" >
 
-    
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/flanges" />
+     <ImageView
+         android:id="@+id/imageView1"
+         android:layout_width="183dp"
+         android:layout_height="172dp"
+         android:layout_gravity="center"
+         android:src="@drawable/flanges2" />
 
     <Button
-        android:id="@+id/Flange_button"
+        android:id="@+id/btn_150lb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="Select a Flange size" />
+        android:text="150lb Flange" />
+    
+    
+    <Button
+        android:id="@+id/btn_300lb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="300lb Flange" />
+    
+     <Button
+        android:id="@+id/btn_400lb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="400lb Flange" />
+     
+       <Button
+        android:id="@+id/btn_600lb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="600lb Flange" />
+    
+  <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
@@ -27,43 +51,78 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:text="TextView"
+            android:text="Large Text"
             android:visibility="invisible" />
+        
+            <TextView
+                android:id="@+id/textViewSTD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Large Text"
+                android:visibility="invisible" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:text="TextView" 
-            android:visibility="invisible"/>
-
-    </RelativeLayout>
-     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
+            android:background="@drawable/textviewbackground"
+            android:text="Medium Text"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/TextView02"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:text="TextView" 
-            android:visibility="invisible"/>
+            android:background="@drawable/textviewbackground"
+            android:text="Medium Text"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/TextView01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:text="TextView"
+            android:background="@drawable/textviewbackground"
+            android:text="Medium Text"
             android:visibility="invisible" />
-    </RelativeLayout>
-
+        
+            <TextView
+            android:id="@+id/textViewSpace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium Text"
+            android:visibility="invisible"
+            android:background="@drawable/textviewbackground" />
+            
+            <TextView
+            android:id="@+id/textViewSch40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:visibility="invisible" />
+            
+             <TextView
+            android:id="@+id/textViewSch40OD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:visibility="invisible"
+            android:background="@drawable/textviewbackground" />
+              
+               <TextView
+            android:id="@+id/textViewSch40THK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:visibility="invisible" 
+            android:background="@drawable/textviewbackground"/>
+               
+                  <TextView
+            android:id="@+id/textViewSch40ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:visibility="invisible" 
+            android:background="@drawable/textviewbackground"/>
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>
