@@ -3,8 +3,6 @@ package com.example.engineersreference;
 //import com.example.android.apis.R;
 //import com.example.android.apis.app.AlertDialogSamples;
 
-import java.text.DecimalFormat;
-
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
@@ -148,14 +146,6 @@ public class FlangeData extends Activity {
 								public void onClick(DialogInterface dialog,
 										int whichButton) {
 									dialog.dismiss();
-
-									/*
-									 * double a = Float
-									 * .valueOf(flangeOD(selectedPosition));
-									 * double b = Float
-									 * .valueOf(wallThickness(selectedPosition
-									 * )); double c = a - (2 * b);
-									 */
 
 									selectedPosition = ((AlertDialog) dialog)
 											.getListView()

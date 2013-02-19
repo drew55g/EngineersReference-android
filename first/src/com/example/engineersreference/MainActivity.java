@@ -14,14 +14,14 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		MyTimerTask myTask = new MyTimerTask();
 		Timer myTimer = new Timer();
-		myTimer.schedule(myTask, 3000); // setup timer to limit onCreate task to
-										// 3 seconds
+		myTimer.schedule(myTask, 2000); // setup timer to limit onCreate task to
+										// 2 seconds
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main); // runs "splash screen" onCreate
 												// first
 		ActionBar actionBar = getActionBar();
-		actionBar.hide();
+		actionBar.hide();						// hides action bar
 	}
 
 	class MyTimerTask extends TimerTask {
