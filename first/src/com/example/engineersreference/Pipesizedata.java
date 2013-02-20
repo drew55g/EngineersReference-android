@@ -22,14 +22,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Pipesizedata extends Activity {
-	CharSequence[] array = { "1/8 in", "1/4 in", "3/8 in", "1/2 in", "3/4 in",
-			"1 in", "1 1/4 in", "1 1/2 in", "2 in", "2 1/2 in", "3 in",
-			"3 1/2 in", "4 in", "5 in", "6 in", "8 in", "10 in", "12 in",
-			"14 O.D.", "16 O.D.", "18 O.D.", "20 O.D.", "22 O.D.", "24 O.D.",
-			"26 O.D.", "28 O.D.", "30 O.D.", "32 O.D.", "34 O.D.", "36 O.D.",
-			"42 O.D." };
+	CharSequence[] arraySTD = { "1/8 in", "1/4 in", "3/8 in", "1/2 in",
+			"3/4 in", "1 in", "1 1/4 in", "1 1/2 in", "2 in", "2 1/2 in",
+			"3 in", "3 1/2 in", "4 in", "5 in", "6 in", "8 in", "10 in",
+			"12 in", "14 O.D.", "16 O.D.", "18 O.D.", "20 O.D.", "22 O.D.",
+			"24 O.D.", "26 O.D.", "28 O.D.", "30 O.D.", "32 O.D.", "34 O.D.",
+			"36 O.D.", "42 O.D." };
 
-	boolean[] itemsChecked = new boolean[array.length];
+	CharSequence[] array40 = { "1/8 in", "1/4 in", "3/8 in", "1/2 in",
+			"3/4 in", "1 in", "1 1/4 in", "1 1/2 in", "2 in", "2 1/2 in",
+			"3 in", "3 1/2 in", "4 in", "5 in", "6 in", "8 in", "10 in",
+			"12 in", "14 O.D.", "16 O.D.", "18 O.D.", "20 O.D.", "24 O.D.",
+			"32 O.D.", "34 O.D.", "36 O.D." };
+
+	CharSequence[] array80 = { "1/8 in", "1/4 in", "3/8 in", "1/2 in",
+			"3/4 in", "1 in", "1 1/4 in", "1 1/2 in", "2 in", "2 1/2 in",
+			"3 in", "3 1/2 in", "4 in", "5 in", "6 in", "8 in", "10 in",
+			"12 in", "14 O.D.", "16 O.D.", "18 O.D.", "20 O.D.", "22 O.D.",
+			"24 O.D." };
 
 	int selectedPosition;
 
@@ -40,10 +50,6 @@ public class Pipesizedata extends Activity {
 	private TextView ODTextView;
 	private TextView IDTextView;
 	private TextView WallThicknessTextView;
-
-	private TextView SCH40ODTextView;
-	private TextView SCH40IDTextView;
-	private TextView SCH40WallThicknessTextView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,11 +66,7 @@ public class Pipesizedata extends Activity {
 		IDTextView = (TextView) findViewById(R.id.TextView01);
 		WallThicknessTextView = (TextView) findViewById(R.id.TextView02);
 
-		pipeTextView40 = (TextView) findViewById(R.id.textViewSch40);
-		SCH40ODTextView = (TextView) findViewById(R.id.textViewSch40OD);
-		SCH40IDTextView = (TextView) findViewById(R.id.textViewSch40ID);
-		SCH40WallThicknessTextView = (TextView) findViewById(R.id.textViewSch40THK);
-
+		
 		Button button1 = (Button) findViewById(R.id.btn_standard);
 		button1.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -95,7 +97,7 @@ public class Pipesizedata extends Activity {
 			return new AlertDialog.Builder(Pipesizedata.this)
 					.setIcon(R.drawable.ic_launcher)
 					.setTitle("pipe size")
-					.setSingleChoiceItems(array, 0,
+					.setSingleChoiceItems(arraySTD, 0,
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int whichButton) {
@@ -112,7 +114,7 @@ public class Pipesizedata extends Activity {
 
 									Float value = ((Float
 											.valueOf(PipeOD(selectedPosition))) - 2 * Float
-											.valueOf(Sch40Thickness(selectedPosition)));
+											.valueOf(WallThickness(selectedPosition)));
 
 									String formattedValue = new DecimalFormat(
 											"#.###").format(value);
@@ -125,7 +127,7 @@ public class Pipesizedata extends Activity {
 													+ " inches");
 
 									pipeTextView2.setText("You selected a "
-											+ array[whichButton]
+											+ arraySTD[whichButton]
 											+ " nominal STD Sch pipe");
 
 									{
@@ -148,7 +150,7 @@ public class Pipesizedata extends Activity {
 			return new AlertDialog.Builder(Pipesizedata.this)
 					.setIcon(R.drawable.ic_launcher)
 					.setTitle("pipe size")
-					.setSingleChoiceItems(array, 0,
+					.setSingleChoiceItems(array40, 0,
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int whichButton) {
@@ -179,7 +181,7 @@ public class Pipesizedata extends Activity {
 
 									// gets the position of the dialog button
 									pipeTextView2.setText("You selected a "
-											+ array[whichButton]
+											+ array40[whichButton]
 											+ " nominal schedule 40 pipe ");
 
 									{
@@ -202,7 +204,7 @@ public class Pipesizedata extends Activity {
 			return new AlertDialog.Builder(Pipesizedata.this)
 					.setIcon(R.drawable.ic_launcher)
 					.setTitle("pipe size")
-					.setSingleChoiceItems(array, 0,
+					.setSingleChoiceItems(array80, 0,
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int whichButton) {
@@ -212,36 +214,51 @@ public class Pipesizedata extends Activity {
 											.getListView()
 											.getCheckedItemPosition();
 
-									// sets the text for the different variables
-									ODTextView.setText(" OD = "
-											+ PipeOD(selectedPosition)
-											+ " inches");
+									if (selectedPosition == 31) {
 
-									Float value = ((Float
-											.valueOf(PipeOD(selectedPosition))) - 2 * Float
-											.valueOf(Sch40Thickness(selectedPosition)));
+										ODTextView.setText(" OD = "
+												+ " undefined: does not exist");
 
-									String formattedValue = new DecimalFormat(
-											"#.###").format(value);
-									IDTextView.setText(" ID = "
-											+ formattedValue + " inches");
+										IDTextView.setText(" ID = "
+												+ " undefined: does not exist");
 
-									WallThicknessTextView
-											.setText(" WallThickness = "
-													+ Sch80Thickness(selectedPosition)
-													+ " inches");
+										WallThicknessTextView
+												.setText(" WallThickness = "
+														+ " undefined: does not exist");
 
-									// gets the position of the dialog button
-									pipeTextView2.setText("You selected a "
-											+ array[whichButton]
-											+ " nominal schedule 80 pipe");
+										// gets the position of the dialog
+										// button
+										pipeTextView2.setText("You selected a "
+												+ array80[whichButton]
+												+ " nominal schedule 80 pipe");
 
-									{
-										Toast.makeText(getBaseContext(),
-												selectedPosition + " checked",
-												Toast.LENGTH_SHORT).show();
+									} else {
+										// sets the text for the different
+										// variables
+										ODTextView.setText(" OD = "
+												+ PipeOD(selectedPosition)
+												+ " inches");
+
+										Float value = ((Float
+												.valueOf(PipeOD(selectedPosition))) - 2 * Float
+												.valueOf(Sch80Thickness(selectedPosition)));
+
+										String formattedValue = new DecimalFormat(
+												"#.###").format(value);
+										IDTextView.setText(" ID = "
+												+ formattedValue + " inches");
+
+										WallThicknessTextView
+												.setText(" WallThickness = "
+														+ Sch80Thickness(selectedPosition)
+														+ " inches");
+
+										// gets the position of the dialog
+										// button
+										pipeTextView2.setText("You selected a "
+												+ array80[whichButton]
+												+ " nominal schedule 80 pipe");
 									}
-
 									// makes the text views visible after a
 									// dialog button is selected
 									pipeTextView2.setVisibility(View.VISIBLE);
@@ -377,20 +394,6 @@ public class Pipesizedata extends Activity {
 			return "1.125";
 		case 23:
 			return "1.218";
-		case 24:
-			return "null";
-		case 25:
-			return "null";
-		case 26:
-			return "null";
-		case 27:
-			return ".688";
-		case 28:
-			return ".688";
-		case 29:
-			return ".750";
-		case 30:
-			return "null";
 		}
 		return "Not a valid pipe size";
 	}
@@ -512,23 +515,13 @@ public class Pipesizedata extends Activity {
 		case 21:
 			return ".594";
 		case 22:
-			return "null";
+			return ".688";
 		case 23:
 			return ".688";
 		case 24:
-			return "null";
+			return ".688";
 		case 25:
-			return "null";
-		case 26:
-			return "null";
-		case 27:
-			return ".688";
-		case 28:
-			return ".688";
-		case 29:
 			return ".750";
-		case 30:
-			return "null";
 		}
 		return "Not a valid pipe size";
 	}
