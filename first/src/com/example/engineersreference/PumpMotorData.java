@@ -20,20 +20,38 @@ public class PumpMotorData extends Activity {
 			"Conversions", "Pum/Motor Data", "Electrical Terminology",
 			"Valve Data", "Steam Trap Selection", "Percent Flash Steam",
 			"Turbine Efficiency" };
+	
+	Integer[] images = { 
+			R.drawable.electromagnetic_relay,
+			R.drawable.pipe,
+			R.drawable.flanges2,
+			R.drawable.ic_launcher,
+			R.drawable.flanges1
+						 };
 
-	ArrayAdapter<String> aa;
+	String[] contentsSubItems = { "Descriptive", "informational",
+			"informational", "informational",
+			"Calcs", "Calcs", "Calcs",
+			"Calcs", "Calcs", "Calcs",
+			"Calcs" };
+	
+	ContentsListAdapter cla;
+	Activity a;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pump_motor_data);
 
-		aa = (new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, contents));
-
+		/*aa = (new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, contents));*/
+		
+		cla = new ContentsListAdapter();
 		ListView testListView = (ListView) findViewById(R.id.listView1);
+		
 
-		testListView.setAdapter(aa);
+		testListView.setAdapter(cla);
+		cla.setContext(a);
 
 		testListView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view,

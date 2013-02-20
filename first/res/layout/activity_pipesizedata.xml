@@ -12,25 +12,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/pipe" />
+    
+       <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
 
     <Button
         android:id="@+id/btn_standard"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Standard Schedule" />
+        android:layout_weight="1"
+        android:layout_gravity="left"
+        android:text="SCH STD" />
     
     
     <Button
         android:id="@+id/btn_40"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Schedule 40" />
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:text="SCH 40" />
     
      <Button
-        android:id="@+id/btn_80"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Schedule 80" />
+         android:id="@+id/btn_80"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_weight="1"
+         android:layout_gravity="right"
+         android:text="SCH 80" />
+
+     </LinearLayout>
     
   <ScrollView
         android:id="@+id/scrollView1"
@@ -62,6 +75,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/textviewbackground"
             android:text="Medium Text"
+            android:layout_marginRight="5dip"
             android:visibility="invisible" />
 
         <TextView
@@ -70,6 +84,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/textviewbackground"
             android:text="Medium Text"
+            android:layout_marginRight="5dip"
             android:visibility="invisible" />
 
         <TextView
@@ -78,6 +93,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/textviewbackground"
             android:text="Medium Text"
+            android:layout_marginRight="5dip"
             android:visibility="invisible" />
         
             <TextView
@@ -85,38 +101,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Large Text"
+            android:layout_marginRight="5dip"
             android:visibility="invisible" />
-            
-            <TextView
-            android:id="@+id/textViewSch40"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Large Text"
-            android:visibility="invisible" />
-            
-             <TextView
-            android:id="@+id/textViewSch40OD"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Large Text"
-            android:visibility="invisible"
-            android:background="@drawable/textviewbackground" />
-              
-               <TextView
-            android:id="@+id/textViewSch40THK"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Large Text"
-            android:visibility="invisible" 
-            android:background="@drawable/textviewbackground"/>
-               
-                  <TextView
-            android:id="@+id/textViewSch40ID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Large Text"
-            android:visibility="invisible" 
-            android:background="@drawable/textviewbackground"/>
     </LinearLayout>
     </ScrollView>
 

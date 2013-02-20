@@ -11,35 +11,52 @@
          android:layout_width="183dp"
          android:layout_height="172dp"
          android:layout_gravity="center"
+         android:layout_weight="1"
          android:src="@drawable/flanges2" />
 
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        
     <Button
         android:id="@+id/btn_150lb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="150lb Flange" />
+        android:layout_weight="1"
+         android:layout_gravity="left"
+        android:text="150lb" />
     
     
     <Button
         android:id="@+id/btn_300lb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="300lb Flange" />
+        android:layout_weight="1"
+         android:layout_gravity="left"
+        android:text="300lb" />
     
      <Button
         android:id="@+id/btn_400lb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="400lb Flange" />
+        android:layout_weight="1"
+         android:layout_gravity="center"
+        android:text="400lb" />
      
        <Button
         android:id="@+id/btn_600lb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="600lb Flange" />
+        android:layout_weight="1"
+         android:layout_gravity="right"
+        android:text="600lb" />
+       
+       </LinearLayout>
     
   <ScrollView
         android:id="@+id/scrollView1"
+        android:layout_weight="4"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
@@ -68,6 +85,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/textviewbackground"
             android:text="Medium Text"
+            
             android:visibility="invisible" />
 
         <TextView

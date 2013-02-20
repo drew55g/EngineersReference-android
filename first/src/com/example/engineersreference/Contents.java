@@ -1,27 +1,33 @@
 package com.example.engineersreference;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
-import android.view.Menu;
-import android.view.View;
+
+
 
 public class Contents extends Activity {
 
-	String[] contents = { "Relay Device Numbers", "Pipe Dimensional Data",
-			"Flange Dimensional Data", "High Voltage Clearances",
-			"Conversions", "Pum/Motor Data", "Electrical Terminology",
+	String[] contents = { "Relay Device Numbers", "Pipe Dimensions",
+			"Flange Dimensions", "High Voltage Clearances",
+			"Conversions", "Pump/Motor Data", "Electrical Terminology",
 			"Valve Data", "Steam Trap Selection", "Percent Flash Steam",
 			"Turbine Efficiency" };
+	
+	 static final String KEY_SONG = "song"; // parent node 
+	    static final String KEY_ID = "id"; 
+	    static final String KEY_TITLE = "title"; 
+	    static final String KEY_ARTIST = "artist"; 
+	    static final String KEY_DURATION = "duration"; 
+	    static final String KEY_THUMB_URL = "thumb_url"; 
 
 	ArrayAdapter<String> aa;
 
@@ -29,6 +35,10 @@ public class Contents extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.contents);
 
+		
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
+		
 		aa = (new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, contents));
 
@@ -36,6 +46,8 @@ public class Contents extends Activity {
 
 		contentsListView.setAdapter(aa);
 
+		ContentsListAdapter adapter; 
+		
 		contentsListView.setOnItemClickListener(new OnItemClickListener() {
 
 			public void onItemClick(AdapterView<?> parent, View view,
@@ -69,5 +81,7 @@ public class Contents extends Activity {
 				}
 			}
 		});
+		
+		// public View getView(int position, View convertView, ViewGroup parent) {}
 	}
 }
