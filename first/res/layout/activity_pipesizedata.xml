@@ -24,6 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_gravity="left"
+        android:background="@drawable/button_shape"
+        android:horizontalSpacing="10dp"
+        android:padding="5dip"
         android:text="SCH STD" />
     
     
@@ -33,6 +36,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_gravity="center"
+        android:background="@drawable/button_shape"
+        android:horizontalSpacing="10dp"
+        android:padding="5dip"
         android:text="SCH 40" />
     
      <Button
@@ -41,6 +47,9 @@
          android:layout_height="wrap_content"
          android:layout_weight="1"
          android:layout_gravity="right"
+         android:background="@drawable/button_shape"
+         android:horizontalSpacing="10dp"
+         android:padding="5dip"
          android:text="SCH 80" />
 
      </LinearLayout>

@@ -3,19 +3,15 @@ package com.example.engineersreference;
 //import com.example.android.apis.R;
 //import com.example.android.apis.app.AlertDialogSamples;
 
-import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.util.Log;
-import android.view.Menu;
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +24,6 @@ public class FlangeData extends Activity {
 
 	int selectedPosition;
 
-	private TextView flangeTextView;
 	private TextView flangeTextView2;
 	private TextView flangeTextView40;
 
@@ -46,7 +41,7 @@ public class FlangeData extends Activity {
 
 		setContentView(R.layout.activity_flange_data);
 
-		flangeTextView = (TextView) findViewById(R.id.textView1);
+	
 		flangeTextView2 = (TextView) findViewById(R.id.textViewSTD);
 		ODTextView = (TextView) findViewById(R.id.textView2);
 		IDTextView = (TextView) findViewById(R.id.TextView01);

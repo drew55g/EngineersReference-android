@@ -1,9 +1,5 @@
 package com.example.engineersreference;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,18 +12,19 @@ import android.widget.TextView;
 
 public class ContentsListAdapter extends BaseAdapter {
 
-	String[] contents = { "Relay Device Numbers", "Pipe Dimensional Data",
-			"Flange Dimensional Data", "High Voltage Clearances",
-			"Conversions", "Pum/Motor Data", "Electrical Terminology",
+	String[] contents = { "Relay Device Numbers", "Pipe Dimensions",
+			"Flange Dimensions", "Safe High Voltage Clearances",
+			"Electrical Terminology", "Pump/Motor Data", "Electrical Terminology",
 			"Valve Data", "Steam Trap Selection", "Percent Flash Steam",
 			"Turbine Efficiency" };
 	
 	Integer[] images = { 
 			R.drawable.electromagnetic_relay,
-			R.drawable.pipe,
-			R.drawable.flanges2,
-			R.drawable.ic_launcher,
-			R.drawable.flanges1
+			R.drawable.pipe2,
+			R.drawable.flanges1,
+			R.drawable.lightning_bolt_md,
+			R.drawable.flanges1,
+			R.drawable.pipe
 						 };
 
 	String[] contentsSubItems = { "Descriptive", "informational",
@@ -36,7 +33,6 @@ public class ContentsListAdapter extends BaseAdapter {
 			"Calcs", "Calcs", "Calcs",
 			"Calcs" };
 
-	private Activity activity;
 	Context a;
 
 	
@@ -58,7 +54,7 @@ public class ContentsListAdapter extends BaseAdapter {
 	    }
 	    
 	    public View getView(int position, View convertView, ViewGroup parent) {
-	        LayoutInflater inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	        LayoutInflater inflater = (LayoutInflater)a.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 	        View vi=convertView;
 	        if(convertView==null)
@@ -74,7 +70,7 @@ public class ContentsListAdapter extends BaseAdapter {
 	        // Setting all values in listview
 	        title.setText(contents[position]);
 	        artist.setText(contentsSubItems[position]);
-	     //   imageLoader.DisplayImage(song.get(CustomizedListView.KEY_THUMB_URL), thumb_image);
+	        thumb_image.setImageResource(images[position]);
 	        return vi;
 	    }
 

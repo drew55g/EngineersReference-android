@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
@@ -42,6 +41,7 @@ public class RelayNumbers extends Activity {
 				relayText.setVisibility(View.VISIBLE);
 				relayDescription.setVisibility(View.VISIBLE);
 
+				//Null check
 				Editable e = editText1.getText();
 				String et = "";
 				if (e != null) { 
