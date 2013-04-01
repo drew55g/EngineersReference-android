@@ -1,5 +1,6 @@
 package com.example.engineersreference;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -12,16 +13,19 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class SafeHighVoltageClearances extends Activity {
+	
 	String message;
 	private ListView lv;
-	private String listview_array[] = { "2.1 -> 15 Kv", "15.1 -> 35 Kv",
-			"35.1 -> 46 Kv", "46.1 -> 72 Kv", "72.6 -> 121 Kv",
-			"138 -> 145 Kv", "161 -> 169 Kv", "230 -> 242 Kv", "345 -> 362 Kv",
-			"500 -> 552 Kv", "700 -> 765 Kv" };
+	private String listview_array[] = { "2.1 --> 15 Kv", "15.1 --> 35 Kv",
+			"35.1 --> 46 Kv", "46.1 --> 72 Kv", "72.6 --> 121 Kv",
+			"138 --> 145 Kv", "161 --> 169 Kv", "230 --> 242 Kv", "345 --> 362 Kv",
+			"500 --> 552 Kv", "700 --> 765 Kv" };
 
 	public void onCreate(Bundle icicle)
-
-	{
+	{	
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayShowHomeEnabled(false);
+		
 		super.onCreate(icicle);
 		setContentView(R.layout.activity_safe_high_voltage_clearances);
 		lv = (ListView) findViewById(R.id.listview);

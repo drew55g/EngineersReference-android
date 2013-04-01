@@ -21,7 +21,8 @@
     <string name="title_activity_safe_high_voltage_clearances">SafeHighVoltageClearances</string>
     <string name="title_activity_conversions">Conversions</string>
     <string name="title_activity_pump_motor_data">PumpMotorData</string>
-      <string-array name="contents_array">
+
+    <string-array name="contents_array">
         <item>Relay Device Numbers</item>
         <item>Pipe Data by Size</item>
         <item>Flange Data by Size</item>
@@ -29,5 +30,9 @@
         <item>Conversions</item>
         <item>Pump Motor Data</item>
     </string-array>
+
+    <string name="title_activity_flash_steam_calculator">FlashSteamCalculator</string>
+    <string name="title_activity_vibration">Vibration</string>
+    <string name="FlashSteam">Click for percentage of flashsteam</string>
 
 </resources>

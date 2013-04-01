@@ -12,7 +12,7 @@
          android:layout_height="172dp"
          android:layout_gravity="center"
          android:layout_weight="1"
-         android:src="@drawable/flanges2" />
+         android:src="@drawable/flange" />
 
       <LinearLayout
         android:layout_width="match_parent"

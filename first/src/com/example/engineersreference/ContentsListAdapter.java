@@ -14,23 +14,24 @@ public class ContentsListAdapter extends BaseAdapter {
 
 	String[] contents = { "Relay Device Numbers", "Pipe Dimensions",
 			"Flange Dimensions", "Safe High Voltage Clearances",
-			"Electrical Terminology", "Pump/Motor Data", "Electrical Terminology",
-			"Valve Data", "Steam Trap Selection", "Percent Flash Steam",
-			"Turbine Efficiency" };
+			"Electrical Terminology", "Vibration Calculator", "Flash Steam Calculator",
+			"Turbine Efficiency"};
 	
 	Integer[] images = { 
 			R.drawable.electromagnetic_relay,
 			R.drawable.pipe2,
 			R.drawable.flanges1,
 			R.drawable.lightning_bolt_md,
-			R.drawable.flanges1,
-			R.drawable.pipe
+			R.drawable.bulb,
+			R.drawable.vibrations,
+			R.drawable.steam,
+			R.drawable.turbine
 						 };
 
-	String[] contentsSubItems = { "Descriptive", "informational",
-			"informational", "informational",
-			"Calcs", "Calcs", "Calcs",
-			"Calcs", "Calcs", "Calcs",
+	String[] contentsSubItems = { "ANSI Descriptions", "Commercial pipe sizes in inches",
+			"Welding Neck Flanges in inches", "OSHA safety guidelines",
+			"Common terms used in utility industry", "Velocity to displacement conversion",
+			"Percentage volume of water flashing to steam", "Gas Turbine and Steam turbine efficiency", "",
 			"Calcs" };
 
 	Context a;

@@ -22,7 +22,7 @@ public class RelayNumbers extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 
 		ActionBar actionBar = getActionBar();
-		actionBar.hide();
+		actionBar.setDisplayShowHomeEnabled(false);
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.relaynumbers);
@@ -44,10 +44,7 @@ public class RelayNumbers extends Activity {
 				//Null check
 				Editable e = editText1.getText();
 				String et = "";
-				if (e != null) { 
-					    et = e.toString();
-				} 
-				
+				if (e != null) { et = e.toString();} 
 				
 				ScrollView scrollViewOne = (ScrollView) findViewById(R.id.scrollView1);
 				scrollViewOne.scrollTo(0, 0);

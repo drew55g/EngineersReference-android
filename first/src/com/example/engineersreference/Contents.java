@@ -22,7 +22,7 @@ public class Contents extends Activity {
 		setContentView(R.layout.contents);
 
 		ActionBar actionBar = getActionBar();
-		actionBar.hide();
+		actionBar.setDisplayShowHomeEnabled(false);
 		
 		cla = new ContentsListAdapter();
 		ListView contentsListView = (ListView) findViewById(R.id.listView1);
@@ -55,11 +55,19 @@ public class Contents extends Activity {
 					break;
 				case 4:
 					startActivity(new Intent(getApplicationContext(),
-							Conversions.class));
+							ElectricalTerminology.class));
 					break;
 				case 5:
 					startActivity(new Intent(getApplicationContext(),
-							PumpMotorData.class));
+							Vibration.class));
+					break;
+				case 6:
+					startActivity(new Intent(getApplicationContext(),
+							FlashSteamCalculator.class));
+					break;
+				case 7:
+					startActivity(new Intent(getApplicationContext(),
+							TurbineEfficiency.class));
 					break;
 				}
 			}

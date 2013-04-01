@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="16"
+        android:minSdkVersion="11"
         android:targetSdkVersion="16" />
 
     <application
@@ -43,12 +43,20 @@
             android:label="@string/title_activity_safe_high_voltage_clearances" >
         </activity>
         <activity
-            android:name="com.example.engineersreference.Conversions"
+            android:name="com.example.engineersreference.ElectricalTerminology"
             android:label="@string/title_activity_conversions" >
         </activity>
         <activity
-            android:name="com.example.engineersreference.PumpMotorData"
+            android:name="com.example.engineersreference.TurbineEfficiency"
             android:label="@string/title_activity_pump_motor_data" >
+        </activity>
+        <activity
+            android:name="com.example.engineersreference.FlashSteamCalculator"
+            android:label="@string/title_activity_flash_steam_calculator" >
+        </activity>
+        <activity
+            android:name="com.example.engineersreference.Vibration"
+            android:label="@string/title_activity_vibration" >
         </activity>
     </application>
 

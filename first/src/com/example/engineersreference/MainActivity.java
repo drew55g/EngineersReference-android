@@ -21,7 +21,8 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main); // runs "splash screen" onCreate
 												// first
 		ActionBar actionBar = getActionBar();
-		actionBar.hide();						// hides action bar
+		actionBar.setDisplayShowHomeEnabled(false);
+		//actionBar.hide();						// hides action bar
 	}
 
 	class MyTimerTask extends TimerTask {

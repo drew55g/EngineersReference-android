@@ -36,6 +36,13 @@ public class Pipesizedata extends Activity {
 			"3 in", "3 1/2 in", "4 in", "5 in", "6 in", "8 in", "10 in",
 			"12 in", "14 O.D.", "16 O.D.", "18 O.D.", "20 O.D.", "22 O.D.",
 			"24 O.D." };
+	
+	CharSequence[] arrayXS = { "1/8 in", "1/4 in", "3/8 in", "1/2 in",
+			"3/4 in", "1 in", "1 1/4 in", "1 1/2 in", "2 in", "2 1/2 in",
+			"3 in", "3 1/2 in", "4 in", "5 in", "6 in", "8 in", "10 in",
+			"12 in", "14 O.D.", "16 O.D.", "18 O.D.", "20 O.D.", "22 O.D.",
+			"24 O.D.", "26 O.D.", "28 O.D.", "30 O.D.", "32 O.D.", "34 O.D.",
+			"36 O.D.", "42 O.D." };
 
 	int selectedPosition;
 
@@ -49,7 +56,7 @@ public class Pipesizedata extends Activity {
 		super.onCreate(savedInstanceState);
 
 		ActionBar actionBar = getActionBar();
-		actionBar.hide();
+		actionBar.setDisplayShowHomeEnabled(false);
 
 		setContentView(R.layout.activity_pipesizedata);
 
@@ -78,6 +85,13 @@ public class Pipesizedata extends Activity {
 		button3.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				showDialog(2);
+			}
+		});
+		
+		Button button4 = (Button) findViewById(R.id.btn_XS);
+		button4.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				showDialog(3);
 			}
 		});
 
@@ -122,12 +136,6 @@ public class Pipesizedata extends Activity {
 									pipeTextView2.setText("You selected a "
 											+ arraySTD[whichButton]
 											+ " nominal STD Sch pipe");
-
-									{
-										Toast.makeText(getBaseContext(),
-												selectedPosition + " checked",
-												Toast.LENGTH_SHORT).show();
-									}
 
 									// makes the text views visible after a
 									// dialog button is selected
@@ -176,12 +184,6 @@ public class Pipesizedata extends Activity {
 									pipeTextView2.setText("You selected a "
 											+ array40[whichButton]
 											+ " nominal schedule 40 pipe ");
-
-									{
-										Toast.makeText(getBaseContext(),
-												selectedPosition + " checked",
-												Toast.LENGTH_SHORT).show();
-									}
 
 									// makes the text views visible after a
 									// dialog button is selected
@@ -261,13 +263,60 @@ public class Pipesizedata extends Activity {
 											.setVisibility(View.VISIBLE);
 								}
 							}).create();
+			
+		case 3:
+			return new AlertDialog.Builder(Pipesizedata.this)
+					.setIcon(R.drawable.ic_launcher)
+					.setTitle("pipe size")
+					.setSingleChoiceItems(arrayXS, 0,
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int whichButton) {
+									dialog.dismiss();
+
+									selectedPosition = ((AlertDialog) dialog)
+											.getListView()
+											.getCheckedItemPosition();
+
+									// sets the text for the different variables
+									ODTextView.setText(" OD = "
+											+ PipeOD(selectedPosition)
+											+ " inches");
+
+									Float value = ((Float
+											.valueOf(PipeOD(selectedPosition))) - 2 * Float
+											.valueOf(SchXSThickness(selectedPosition)));
+
+									String formattedValue = new DecimalFormat(
+											"#.###").format(value);
+									IDTextView.setText(" ID = "
+											+ formattedValue + " inches");
+
+									WallThicknessTextView
+											.setText(" WallThickness = "
+													+ SchXSThickness(selectedPosition)
+													+ " inches");
+
+									pipeTextView2.setText("You selected a "
+											+ arrayXS[whichButton]
+											+ " nominal Sch extra strong pipe");
+
+									// makes the text views visible after a
+									// dialog button is selected
+									pipeTextView2.setVisibility(View.VISIBLE);
+									ODTextView.setVisibility(View.VISIBLE);
+									IDTextView.setVisibility(View.VISIBLE);
+									WallThicknessTextView
+											.setVisibility(View.VISIBLE);
+								}
+							}).create();
 
 		}
 		return null;
 
 	}
 
-	// List of OD for a selected pipe size
+	// List of OD for all selected pipe sizes
 	public String PipeOD(int selectedPosition) {
 		switch (selectedPosition) {
 		case 0:
@@ -335,6 +384,77 @@ public class Pipesizedata extends Activity {
 		}
 		return "Not a valid pipe size";
 	}
+	
+	// List of schedule XS wall thickness for a selected pipe size
+		public String SchXSThickness(int selectedPosition) {
+			switch (selectedPosition) {
+			case 0:
+				return ".095";
+			case 1:
+				return ".119";
+			case 2:
+				return ".126";
+			case 3:
+				return ".147";
+			case 4:
+				return ".154";
+			case 5:
+				return ".179";
+			case 6:
+				return ".191";
+			case 7:
+				return ".200";
+			case 8:
+				return ".218";
+			case 9:
+				return ".276";
+			case 10:
+				return ".300";
+			case 11:
+				return ".318";
+			case 12:
+				return ".337";
+			case 13:
+				return ".375";
+			case 14:
+				return ".432";
+			case 15:
+				return ".500";
+			case 16:
+				return ".500";
+			case 17:
+				return ".500";
+			case 18:
+				return ".500";
+			case 19:
+				return ".500";
+			case 20:
+				return ".500";
+			case 21:
+				return ".500";
+			case 22:
+				return ".500";
+			case 23:
+				return ".500";
+			case 24:
+				return ".500";
+			case 25:
+				return ".500";
+			case 26:
+				return ".500";
+			case 27:
+				return ".500";
+			case 28:
+				return ".500";
+			case 29:
+				return ".500";
+			case 30:
+				return ".500";
+			case 31:
+				return ".500";
+			}
+			return "Not a valid pipe size";
+		}
 
 	// List of schedule 80 wall thickness for a selected pipe size
 	public String Sch80Thickness(int selectedPosition) {
