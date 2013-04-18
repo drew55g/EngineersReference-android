@@ -1,17 +1,17 @@
-package com.example.engineersreference;
+package com.worc.engineersreference;
 
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.app.ActionBar;
-import android.app.Dialog;
+import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import com.google.ads.AdView;
 
 public class ElectricalTerminology extends ListActivity {
 	String[] voltages = { "Ampacity", "Megger", "High Pot", "Arc",
@@ -21,15 +21,16 @@ public class ElectricalTerminology extends ListActivity {
 
 	String message;
 	String title;
+	protected AdView adView;
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		setListAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, voltages));
 
+		//Hides action bar image
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayShowHomeEnabled(false);
 	}
@@ -116,4 +117,29 @@ public class ElectricalTerminology extends ListActivity {
 		adb.setPositiveButton("OK", null);
 		adb.show();
 	}
+
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.activity_conversions, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		super.onOptionsItemSelected(item);
+		// Find which Menu Item has been selected
+		switch (item.getItemId()) {
+		// Check for each known Menu Item
+		case (R.id.menu_settings): {
+			Intent i = new Intent(this, Contents.class);
+			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(i);
+			return true;
+		}
+		// Return false if you have not handled the Menu Item
+		default:
+			return false;
+		}
+	}
+
 }

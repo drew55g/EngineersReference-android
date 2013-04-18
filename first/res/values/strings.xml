@@ -6,21 +6,15 @@
     <string name="title_section2">Section 2</string>
     <string name="title_section1">Section 1</string>
     <string name="hello_world">Hello world!</string>
-    <string name="menu_settings">Settings</string>
-    <string name="button1">Relay Device Numbers</string>
-    <string name="button2">Pipe Dimensional Data </string>
-    <string name="button3">Flange Dimensional Data </string>
-    <string name="button4">High Voltage Clearances</string>
-    <string name="button5">Conversions</string>
-    <string name="button6">Pump/Motor Data</string>
-    <string name="relaynumbutton">Enter number</string>
+    <string name="menu_settings">Home</string>
+    <string name="relaynumbutton">Click to get Relay Definition</string>
     <string name="contents">Available References</string>
-    <string name="relaynum">Get Definition of Relay Device</string>
-    <string name="title_activity_pipesizedata">Pipesizedata</string>
-    <string name="title_activity_flange_data">FlangeData</string>
-    <string name="title_activity_safe_high_voltage_clearances">SafeHighVoltageClearances</string>
-    <string name="title_activity_conversions">Conversions</string>
-    <string name="title_activity_pump_motor_data">PumpMotorData</string>
+    <string name="relaynum">Relay Device Definition</string>
+    <string name="title_activity_pipesizedata">Pipe data</string>
+    <string name="title_activity_flange_data">Flange Data</string>
+    <string name="title_activity_safe_high_voltage_clearances">Safe High Voltage Clearances</string>
+    <string name="title_activity_conversions">Electrical Terminology</string>
+    <string name="title_activity_pump_motor_data">Turbine Fuel Efficiency</string>
 
     <string-array name="contents_array">
         <item>Relay Device Numbers</item>
@@ -31,8 +25,9 @@
         <item>Pump Motor Data</item>
     </string-array>
 
-    <string name="title_activity_flash_steam_calculator">FlashSteamCalculator</string>
+    <string name="title_activity_flash_steam_calculator">Flash Steam Calculator</string>
     <string name="title_activity_vibration">Vibration</string>
     <string name="FlashSteam">Click for percentage of flashsteam</string>
+    <string name="title_activity_heat_rate">HeatRate</string>
 
 </resources>

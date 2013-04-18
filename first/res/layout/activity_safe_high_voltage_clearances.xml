@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SafeHighVoltageClearances" >
+    tools:context=".SafeHighVoltageClearances"
+    android:id="@+id/mainLayout" >
 
     <TextView
         android:id="@+id/textView1"

@@ -4,5 +4,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="#FFFFFFFF"
-    tools:context=".Electrical Terminology" >
+    tools:context=".Electrical Terminology"
+    android:id="@+id/mainLayout" >
 </LinearLayout>

@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFFFF"
-    android:orientation="vertical" > 
-    
-      <ScrollView
+    android:orientation="vertical"
+    >
+
+    <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -13,9 +14,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:id="@+id/mainLayout"  >
 
-         <TextView
+            <TextView
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -23,51 +25,43 @@
                 android:text="This activity determines the percentage of condensate that will flash through the vent of a flash tank or outlet of a steam trap exhausting to atmosphere. You will need steam tables for data input "
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Heat of sat liquid at tank pressure"
-        android:inputType="numberDecimal">
-    </EditText>
-    
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Heat of sat liquid at system pressure"
-        android:inputType="numberDecimal">
-    </EditText>
-    
-       <EditText
-        android:id="@+id/editText3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Heat of vaporization at tank pressure"
-        android:inputType="numberDecimal">
-    </EditText>
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Heat of sat liquid at tank pressure"
+                android:inputType="numberDecimal" >
+            </EditText>
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:radius="20dp"
-        android:text="@string/FlashSteam" />
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Heat of sat liquid at system pressure"
+                android:inputType="numberDecimal" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Heat of vaporization at tank pressure"
+                android:inputType="numberDecimal" >
+            </EditText>
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:radius="20dp"
+                android:text="@string/FlashSteam" />
 
             <TextView
                 android:id="@+id/textView2"
                 style="@android:style/TextAppearance.Medium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textStyle="bold"
-                android:visibility="invisible" />
-
-            <TextView
-                android:id="@+id/TextView01"
-                style="@android:style/TextAppearance.Medium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:background="@drawable/textviewbackground"
                 android:text="TextView"
                 android:visibility="invisible" />
         </LinearLayout>

@@ -1,31 +1,49 @@
-package com.example.engineersreference;
+package com.worc.engineersreference;
 
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.google.ads.AdRequest;
+import com.google.ads.AdSize;
+import com.google.ads.AdView;
 
 public class RelayNumbers extends Activity {
 	private TextView relayText;
 	private EditText editText1;
 	private TextView relayDescription;
+	protected AdView adView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.relaynumbers);
+
+		// Create the adView 
+		AdView adView = new AdView(this, AdSize.BANNER, "a15160489d74c95");
+		// Lookup your LinearLayout assuming it’s been given
+		// the attribute android:id="@+id/mainLayout"
+		LinearLayout layout = (LinearLayout) findViewById(R.id.mainLayout);
+		// Add the adView to it
+		layout.addView(adView);
+		// Initiate a generic request to load it with an ad
+		adView.loadAd(new AdRequest());
 
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayShowHomeEnabled(false);
-
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.relaynumbers);
 
 		editText1 = (EditText) findViewById(R.id.editText1);
 		relayText = (TextView) findViewById(R.id.textView1);
@@ -41,28 +59,37 @@ public class RelayNumbers extends Activity {
 				relayText.setVisibility(View.VISIBLE);
 				relayDescription.setVisibility(View.VISIBLE);
 
-				//Null check
+				// Null check
 				Editable e = editText1.getText();
 				String et = "";
-				if (e != null) { et = e.toString();} 
-				
+				if (e != null) {
+					et = e.toString();
+				}
+
 				ScrollView scrollViewOne = (ScrollView) findViewById(R.id.scrollView1);
 				scrollViewOne.scrollTo(0, 0);
-				
-				if (et.equals(""))
-				{
+
+				if (et.equals("")) {
 					relayText.setText(relayNumber(1000));
-					relayDescription.setText(relayNumberDescription((1000))); 
+					relayDescription.setText(relayNumberDescription((1000)));
 				} else {
 					relayText.setText(relayNumber(Integer.valueOf(et)));
-					relayDescription.setText(relayNumberDescription(Integer.valueOf(et)));					
+					relayDescription.setText(relayNumberDescription(Integer
+							.valueOf(et)));
 				}
-				  
-				 
+
 			}
 		});
 	}
 
+	 @Override
+	  public void onDestroy() {
+	    if (adView != null) {
+	      adView.destroy();
+	    }
+	    super.onDestroy();
+	  }
+	 
 	// this class displays the associated function for a selected relay number
 	// in a textview
 	public String relayNumber(int relay) {
@@ -458,4 +485,27 @@ public class RelayNumbers extends Activity {
 		return "No description available";
 	}
 
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.relaynumbers, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		super.onOptionsItemSelected(item);
+		// Find which Menu Item has been selected
+		switch (item.getItemId()) {
+		// Check for each known Menu Item
+		case (R.id.menu_settings): {
+			Intent i = new Intent(this, Contents.class);
+			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(i);
+			return true;
+		}
+		// Return false if you have not handled the Menu Item
+		default:
+			return false;
+		}
+	}
 }

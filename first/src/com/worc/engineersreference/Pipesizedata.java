@@ -1,7 +1,4 @@
-package com.example.engineersreference;
-
-//import com.example.android.apis.R;
-//import com.example.android.apis.app.AlertDialogSamples;
+package com.worc.engineersreference;
 
 import java.text.DecimalFormat;
 
@@ -10,12 +7,19 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.google.ads.AdRequest;
+import com.google.ads.AdSize;
+import com.google.ads.AdView;
 
 public class Pipesizedata extends Activity {
 	CharSequence[] arraySTD = { "1/8 in", "1/4 in", "3/8 in", "1/2 in",
@@ -36,7 +40,7 @@ public class Pipesizedata extends Activity {
 			"3 in", "3 1/2 in", "4 in", "5 in", "6 in", "8 in", "10 in",
 			"12 in", "14 O.D.", "16 O.D.", "18 O.D.", "20 O.D.", "22 O.D.",
 			"24 O.D." };
-	
+
 	CharSequence[] arrayXS = { "1/8 in", "1/4 in", "3/8 in", "1/2 in",
 			"3/4 in", "1 in", "1 1/4 in", "1 1/2 in", "2 in", "2 1/2 in",
 			"3 in", "3 1/2 in", "4 in", "5 in", "6 in", "8 in", "10 in",
@@ -45,6 +49,8 @@ public class Pipesizedata extends Activity {
 			"36 O.D.", "42 O.D." };
 
 	int selectedPosition;
+	
+	protected AdView adView;
 
 	private TextView pipeTextView2;
 	private TextView ODTextView;
@@ -54,19 +60,28 @@ public class Pipesizedata extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_pipesizedata);
+	
+		// Create the adView
+		AdView adView = new AdView(this, AdSize.BANNER, "a15160a21dcbbb2");
+		// Lookup your LinearLayout assuming it’s been given
+		// the attribute android:id="@+id/mainLayout"
+		LinearLayout layout = (LinearLayout) findViewById(R.id.mainLayout);
+		// Add the adView to it
+		layout.addView(adView);
+		// Initiate a generic request to load it with an ad
+		adView.loadAd(new AdRequest());
 
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayShowHomeEnabled(false);
 
-		setContentView(R.layout.activity_pipesizedata);
-
 		
+
 		pipeTextView2 = (TextView) findViewById(R.id.textViewSTD);
 		ODTextView = (TextView) findViewById(R.id.textView2);
 		IDTextView = (TextView) findViewById(R.id.TextView01);
 		WallThicknessTextView = (TextView) findViewById(R.id.TextView02);
 
-		
 		Button button1 = (Button) findViewById(R.id.btn_standard);
 		button1.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -87,7 +102,7 @@ public class Pipesizedata extends Activity {
 				showDialog(2);
 			}
 		});
-		
+
 		Button button4 = (Button) findViewById(R.id.btn_XS);
 		button4.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -97,6 +112,15 @@ public class Pipesizedata extends Activity {
 
 	}
 
+	 @Override
+	  public void onDestroy() {
+	    if (adView != null) {
+	      adView.destroy();
+	    }
+	    super.onDestroy();
+	  }
+	 
+	
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
 
@@ -263,7 +287,7 @@ public class Pipesizedata extends Activity {
 											.setVisibility(View.VISIBLE);
 								}
 							}).create();
-			
+
 		case 3:
 			return new AlertDialog.Builder(Pipesizedata.this)
 					.setIcon(R.drawable.ic_launcher)
@@ -384,77 +408,77 @@ public class Pipesizedata extends Activity {
 		}
 		return "Not a valid pipe size";
 	}
-	
+
 	// List of schedule XS wall thickness for a selected pipe size
-		public String SchXSThickness(int selectedPosition) {
-			switch (selectedPosition) {
-			case 0:
-				return ".095";
-			case 1:
-				return ".119";
-			case 2:
-				return ".126";
-			case 3:
-				return ".147";
-			case 4:
-				return ".154";
-			case 5:
-				return ".179";
-			case 6:
-				return ".191";
-			case 7:
-				return ".200";
-			case 8:
-				return ".218";
-			case 9:
-				return ".276";
-			case 10:
-				return ".300";
-			case 11:
-				return ".318";
-			case 12:
-				return ".337";
-			case 13:
-				return ".375";
-			case 14:
-				return ".432";
-			case 15:
-				return ".500";
-			case 16:
-				return ".500";
-			case 17:
-				return ".500";
-			case 18:
-				return ".500";
-			case 19:
-				return ".500";
-			case 20:
-				return ".500";
-			case 21:
-				return ".500";
-			case 22:
-				return ".500";
-			case 23:
-				return ".500";
-			case 24:
-				return ".500";
-			case 25:
-				return ".500";
-			case 26:
-				return ".500";
-			case 27:
-				return ".500";
-			case 28:
-				return ".500";
-			case 29:
-				return ".500";
-			case 30:
-				return ".500";
-			case 31:
-				return ".500";
-			}
-			return "Not a valid pipe size";
+	public String SchXSThickness(int selectedPosition) {
+		switch (selectedPosition) {
+		case 0:
+			return ".095";
+		case 1:
+			return ".119";
+		case 2:
+			return ".126";
+		case 3:
+			return ".147";
+		case 4:
+			return ".154";
+		case 5:
+			return ".179";
+		case 6:
+			return ".191";
+		case 7:
+			return ".200";
+		case 8:
+			return ".218";
+		case 9:
+			return ".276";
+		case 10:
+			return ".300";
+		case 11:
+			return ".318";
+		case 12:
+			return ".337";
+		case 13:
+			return ".375";
+		case 14:
+			return ".432";
+		case 15:
+			return ".500";
+		case 16:
+			return ".500";
+		case 17:
+			return ".500";
+		case 18:
+			return ".500";
+		case 19:
+			return ".500";
+		case 20:
+			return ".500";
+		case 21:
+			return ".500";
+		case 22:
+			return ".500";
+		case 23:
+			return ".500";
+		case 24:
+			return ".500";
+		case 25:
+			return ".500";
+		case 26:
+			return ".500";
+		case 27:
+			return ".500";
+		case 28:
+			return ".500";
+		case 29:
+			return ".500";
+		case 30:
+			return ".500";
+		case 31:
+			return ".500";
 		}
+		return "Not a valid pipe size";
+	}
 
 	// List of schedule 80 wall thickness for a selected pipe size
 	public String Sch80Thickness(int selectedPosition) {
@@ -637,5 +661,29 @@ public class Pipesizedata extends Activity {
 			return ".750";
 		}
 		return "Not a valid pipe size";
+	}
+
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.activity_pipesizedata, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		super.onOptionsItemSelected(item);
+		// Find which Menu Item has been selected
+		switch (item.getItemId()) {
+		// Check for each known Menu Item
+		case (R.id.menu_settings): {
+			Intent i = new Intent(this, Contents.class);
+			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(i);
+			return true;
+		}
+		// Return false if you have not handled the Menu Item
+		default:
+			return false;
+		}
 	}
 }

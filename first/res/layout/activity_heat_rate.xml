@@ -1,22 +1,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFFFFFFF"
-    >
+    android:orientation="horizontal"
+    tools:context=".Vibration" >
     
-       <ScrollView
+    <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="wrap_content"
         android:layout_height="match_parent" >
 
         <LinearLayout
             android:id="@+id/mainLayout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:measureWithLargestChild="false"
             android:orientation="vertical" >
 
             <TextView
@@ -24,24 +22,40 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/textviewbackground"
-                android:text="To determine Turbine fuel efficiency enter current heat rate"
+                android:text="This activity calculates heat rate using fuel flow (HHV) and power output assuming natural gas as the fuel source"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
+            
+                <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select fuel units " />
 
             <EditText
                 android:id="@+id/editText1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter heat rate (Btu/kWh)"
+                android:hint="Enter fuel flow rate"
+                android:enabled="false"
                 android:inputType="numberDecimal" >
 
                 <requestFocus />
             </EditText>
 
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Enter generator output (MW)"
+                android:enabled="false"
+                android:inputType="numberDecimal"/>
+
             <Button
                 android:id="@+id/button1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Click for efficiency" />
+                android:text="Click for heat rate " />
 
             <TextView
                 android:id="@+id/textView2"
@@ -53,5 +67,6 @@
         </LinearLayout>
 
     </ScrollView>
+  
 
 </LinearLayout>

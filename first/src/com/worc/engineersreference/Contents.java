@@ -1,4 +1,4 @@
-package com.example.engineersreference;
+package com.worc.engineersreference;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -43,32 +43,37 @@ public class Contents extends Activity {
 					break;
 				case 1:
 					startActivity(new Intent(getApplicationContext(),
-							Pipesizedata.class));
+							HeatRate.class));
 					break;
 				case 2:
 					startActivity(new Intent(getApplicationContext(),
-							FlangeData.class));
+							TurbineEfficiency.class));
 					break;
 				case 3:
 					startActivity(new Intent(getApplicationContext(),
-							SafeHighVoltageClearances.class));
+							Pipesizedata.class));
 					break;
 				case 4:
 					startActivity(new Intent(getApplicationContext(),
-							ElectricalTerminology.class));
+							FlangeData.class));
 					break;
 				case 5:
 					startActivity(new Intent(getApplicationContext(),
-							Vibration.class));
+							SafeHighVoltageClearances.class));
 					break;
 				case 6:
 					startActivity(new Intent(getApplicationContext(),
-							FlashSteamCalculator.class));
+							ElectricalTerminology.class));
 					break;
 				case 7:
 					startActivity(new Intent(getApplicationContext(),
-							TurbineEfficiency.class));
+							Vibration.class));
 					break;
+				case 8:
+					startActivity(new Intent(getApplicationContext(),
+							FlashSteamCalculator.class));
+					break;
+			
 				}
 			}
 		});

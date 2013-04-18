@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFFFF"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:id="@+id/mainLayout" >
 
     <ImageView
         android:id="@+id/imageView1"
@@ -24,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:radius="20dp"
-        android:text="@string/relaynum" />
+        android:text="@string/relaynumbutton" />
 
     <ScrollView
         android:id="@+id/scrollView1"

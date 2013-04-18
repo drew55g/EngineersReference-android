@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".Vibration" >
+    tools:context=".Vibration"
+    >
 
     <ScrollView
         android:id="@+id/scrollView1"
@@ -14,7 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:id="@+id/mainLayout"  >
 
             <TextView
                 android:id="@+id/textView1"
@@ -28,7 +30,7 @@
                 android:id="@+id/editText1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter vibration in velocity in/s"
+                android:hint="Vibration in velocity in/s"
                 android:inputType="numberDecimal" >
 
                 <requestFocus />
@@ -39,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Enter machine speed in RPM"
+                android:hint="Machine speed in RPM"
                 android:inputType="number" />
 
             <Button

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.engineersreference"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    package="com.worc.engineersreference"
+    android:versionCode="2"
+    android:versionName="1.1" >
 
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="16" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +17,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.engineersreference.MainActivity"
+            android:name="com.worc.engineersreference.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,41 +26,48 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.engineersreference.Contents"
+            android:name="com.worc.engineersreference.Contents"
             android:label="@string/contents" >
         </activity>
         <activity
-            android:name="com.example.engineersreference.RelayNumbers"
+            android:name="com.worc.engineersreference.RelayNumbers"
             android:label="@string/relaynum" >
         </activity>
         <activity
-            android:name="com.example.engineersreference.Pipesizedata"
+            android:name="com.worc.engineersreference.Pipesizedata"
             android:label="@string/title_activity_pipesizedata" >
         </activity>
         <activity
-            android:name="com.example.engineersreference.FlangeData"
+            android:name="com.worc.engineersreference.FlangeData"
             android:label="@string/title_activity_flange_data" >
         </activity>
         <activity
-            android:name="com.example.engineersreference.SafeHighVoltageClearances"
+            android:name="com.worc.engineersreference.SafeHighVoltageClearances"
             android:label="@string/title_activity_safe_high_voltage_clearances" >
         </activity>
         <activity
-            android:name="com.example.engineersreference.ElectricalTerminology"
+            android:name="com.worc.engineersreference.ElectricalTerminology"
             android:label="@string/title_activity_conversions" >
         </activity>
         <activity
-            android:name="com.example.engineersreference.TurbineEfficiency"
+            android:name="com.worc.engineersreference.TurbineEfficiency"
             android:label="@string/title_activity_pump_motor_data" >
         </activity>
         <activity
-            android:name="com.example.engineersreference.FlashSteamCalculator"
+            android:name="com.worc.engineersreference.FlashSteamCalculator"
             android:label="@string/title_activity_flash_steam_calculator" >
         </activity>
         <activity
-            android:name="com.example.engineersreference.Vibration"
+            android:name="com.worc.engineersreference.Vibration"
             android:label="@string/title_activity_vibration" >
         </activity>
+        <activity
+            android:name="com.worc.engineersreference.HeatRate"
+            android:label="@string/title_activity_heat_rate" >
+        </activity>
+        <activity
+            android:name="com.google.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
     </application>
 
 </manifest>
